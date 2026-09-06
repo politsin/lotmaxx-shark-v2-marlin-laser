@@ -18,9 +18,10 @@
 1. [Состояние и ограничения](docs/STATUS.md) - важные границы применения.
 2. [Плата Beta M V1.1](docs/BOARD.md) - проверенная распиновка.
 3. [Лазерная часть](docs/LASER.md) - разъёмы, сигналы и оставшиеся неизвестные.
-4. [Сборка Marlin](docs/MARLIN.md) - что менять и как получить `SM3DP.bin`.
-5. [LightBurn](docs/LIGHTBURN.md) - профиль, G-code и команды проверки.
-6. [DWIN](docs/DWIN.md) - что оставить штатным и почему.
+4. [Драйвер SC-60-V2-L-V1.0](docs/LASER_DRIVER.md) - фото, элементы, питание и план завершения схемы.
+5. [Сборка Marlin](docs/MARLIN.md) - что менять и как получить `SM3DP.bin`.
+6. [LightBurn](docs/LIGHTBURN.md) - профиль, G-code и команды проверки.
+7. [DWIN](docs/DWIN.md) - что оставить штатным и почему.
 
 Краткая английская версия: [README.en.md](README.en.md).
 
