@@ -1,0 +1,12 @@
+# Build products and firmware copied to removable media
+.pio/
+*.bin
+*.elf
+*.map
+!firmware/
+!firmware/SM3DP.bin
+
+# Local captures and temporary artifacts
+captures/
+*.log
+Thumbs.db
