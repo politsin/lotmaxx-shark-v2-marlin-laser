@@ -29,13 +29,13 @@
 - Все строки `GPIO` допускают обычный цифровой input/output и `EXTI<n>` по номеру ножки порта, если это не питание/специальный вывод. `EVENTOUT` не повторяется в каждой строке.
 - В «Возможностях STM32» перечислены аппаратные alternate functions и аналоговые функции, доступные на этой физической ножке. Это возможности чипа, не одновременно включённые сигналы.
 - В «Использовании Beta M» метки означают: **M** - задано в текущем Marlin `pins_LOTMAXX_V1_7.h`; **H** - подтверждено прозвонкой, измерением или работой узла; **S** - следует из подключённого штатного интерфейса/конфигурации, но трасса ещё не прозванивалась.
-- «Не подтверждено» не означает свободный вывод: он может быть занят заводской прошивкой или скрытой дорожкой. Не подавать на него уровень до проверки схемы.
+- Пустая ячейка в «Использовании Beta M» означает, что назначение платы не подтверждено. Это не означает свободный вывод: он может быть занят заводской прошивкой или скрытой дорожкой. Не подавать на него уровень до проверки схемы.
 
 ## Полная таблица LQFP100
 
 | № | Вывод STM32 | Использование Beta M V1.1 | Возможности STM32 |
 |---:|---|---|---|
-| 1 | `PE2` | Не подтверждено | GPIO/EXTI2; `TRACECLK`, `FSMC_A23`, `ETH_MII_TXD3` |
+| 1 | `PE2` |  | GPIO/EXTI2; `TRACECLK`, `FSMC_A23`, `ETH_MII_TXD3` |
 | 2 | `PE3` | **M/H** Laser Enable, active-low; идёт на лазерную часть, роль внутри SC-60 не доказана | GPIO/EXTI3; `TRACED0`, `FSMC_A19` |
 | 3 | `PE4` | **M** E1 DIR | GPIO/EXTI4; `TRACED1`, `FSMC_A20`, `DCMI_D4` |
 | 4 | `PE5` | **M** E1 STEP | GPIO/EXTI5; `TRACED2`, `FSMC_A21`, `TIM9_CH1`, `DCMI_D6` |
@@ -49,7 +49,7 @@
 | 12 | `PH0/OSC_IN` | **H** вход кварца 25 MHz | GPIO/EXTI0; HSE `OSC_IN` |
 | 13 | `PH1/OSC_OUT` | **H** выход кварца 25 MHz | GPIO/EXTI1; HSE `OSC_OUT` |
 | 14 | `NRST` | Сброс; наличие SWD-площадки/трассы не подтверждено | Аппаратный reset, active-low |
-| 15 | `PC0` | Не подтверждено | GPIO/EXTI0; `FSMC_SDNWE`; `ADC123_IN10` |
+| 15 | `PC0` |  | GPIO/EXTI0; `FSMC_SDNWE`; `ADC123_IN10` |
 | 16 | `PC1` | **M** Z DIR | GPIO/EXTI1; `ETH_MDC`; `ADC123_IN11` |
 | 17 | `PC2` | **M** Z STEP | GPIO/EXTI2; `SPI2_MISO`, `I2S2ext_SD`, `ETH_MII_TXD2`; `ADC123_IN12` |
 | 18 | `PC3` | **M** Z ENABLE | GPIO/EXTI3; `SPI2_MOSI`, `I2S2_SD`; `ADC123_IN13` |
@@ -57,8 +57,8 @@
 | 20 | `VSSA` | Аналоговая земля | Земля ADC/DAC |
 | 21 | `VREF+` | Опорное напряжение ADC/DAC; трасса не проверена | Аналоговая опора ADC/DAC |
 | 22 | `VDDA` | Аналоговое питание | Питание ADC/DAC 1.8–3.6 V |
-| 23 | `PA0/WKUP` | Не подтверждено | GPIO/EXTI0, wakeup; `TIM2_CH1/ETR`, `TIM5_CH1`, `TIM8_ETR`, `USART2_CTS`, `ETH_MII_CRS`; `ADC123_IN0` |
-| 24 | `PA1` | Не подтверждено | GPIO/EXTI1; `TIM2_CH2`, `TIM5_CH2`, `USART2_RTS`, `ETH_MII_RX_CLK`; `ADC123_IN1` |
+| 23 | `PA0/WKUP` |  | GPIO/EXTI0, wakeup; `TIM2_CH1/ETR`, `TIM5_CH1`, `TIM8_ETR`, `USART2_CTS`, `ETH_MII_CRS`; `ADC123_IN0` |
+| 24 | `PA1` |  | GPIO/EXTI1; `TIM2_CH2`, `TIM5_CH2`, `USART2_RTS`, `ETH_MII_RX_CLK`; `ADC123_IN1` |
 | 25 | `PA2` | **M** Y DIR | GPIO/EXTI2; `TIM2_CH3`, `TIM5_CH3`, `TIM9_CH1`, `USART2_TX`, `ETH_MII_MDIO`; `ADC123_IN2` |
 | 26 | `PA3` | **M** Y ENABLE | GPIO/EXTI3; `TIM2_CH4`, `TIM5_CH4`, `TIM9_CH2`, `USART2_RX`, `OTG_HS_ULPI_D0`, `ETH_MII_COL`; `ADC123_IN3` |
 | 27 | `VSS` | Земля | Питание GND |
@@ -93,7 +93,7 @@
 | 56 | `PD9` | **M/H** focus-концевик лазера, active-low | GPIO/EXTI9; `FSMC_D14`, `USART3_RX` |
 | 57 | `PD10` | **M** `FIL_RUNOUT2` | GPIO/EXTI10; `FSMC_D15`, `USART3_CK` |
 | 58 | `PD11` | **M** `FIL_RUNOUT` / MT_DET | GPIO/EXTI11; `FSMC_A16`, `USART3_CTS` |
-| 59 | `PD12` | Не подтверждено | GPIO/EXTI12; `FSMC_A17`, `TIM4_CH1`, `USART3_RTS` |
+| 59 | `PD12` |  | GPIO/EXTI12; `FSMC_A17`, `TIM4_CH1`, `USART3_RTS` |
 | 60 | `PD13` | **M** Z stop | GPIO/EXTI13; `FSMC_A18`, `TIM4_CH2` |
 | 61 | `PD14` | **M** Y stop; `HEATER_1` определён, но не используется при одном хотэнде | GPIO/EXTI14; `FSMC_D0/DA0`, `TIM4_CH3` |
 | 62 | `PD15` | **M** X stop | GPIO/EXTI15; `FSMC_D1`, `TIM4_CH4` |
@@ -101,9 +101,9 @@
 | 64 | `PC7` | **S** DWIN UART RX (`LCD_SERIAL_PORT 6`); требуется прозвонка до кабеля | GPIO/EXTI7; `TIM3_CH2`, `TIM8_CH2`, `I2S3_MCK`, `USART6_RX`, `DCMI_D1`, `SDIO_D7` |
 | 65 | `PC8` | **M** PSU / `PS_ON_PIN` | GPIO/EXTI8; `TIM3_CH3`, `TIM8_CH3`, `USART6_CK`, `DCMI_D2`, `SDIO_D0` |
 | 66 | `PC9` | **M** power-loss input | GPIO/EXTI9; `I2C3_SDA`, `TIM3_CH4`, `I2S_CKIN`, `MCO2`, `DCMI_D3`, `SDIO_D1` |
-| 67 | `PA8` | Не подтверждено | GPIO/EXTI8; `MCO1`, `TIM1_CH1`, `USART1_CK`, `OTG_FS_SOF`, `I2C3_SCL` |
-| 68 | `PA9` | Не подтверждено | GPIO/EXTI9; `MCO2`, `TIM1_CH2`, `I2C3_SMBA`, `USART1_TX`, `DCMI_D0` |
-| 69 | `PA10` | Не подтверждено | GPIO/EXTI10; `TIM1_CH3`, `USART1_RX`, `OTG_FS_ID` |
+| 67 | `PA8` |  | GPIO/EXTI8; `MCO1`, `TIM1_CH1`, `USART1_CK`, `OTG_FS_SOF`, `I2C3_SCL` |
+| 68 | `PA9` |  | GPIO/EXTI9; `MCO2`, `TIM1_CH2`, `I2C3_SMBA`, `USART1_TX`, `DCMI_D0` |
+| 69 | `PA10` |  | GPIO/EXTI10; `TIM1_CH3`, `USART1_RX`, `OTG_FS_ID` |
 | 70 | `PA11` | **S** USB FS D- (принтер виден по USB) | GPIO/EXTI11; `TIM1_CH4`, `USART1_CTS`, `CAN1_RX`, `OTG_FS_DM` |
 | 71 | `PA12` | **S** USB FS D+ (принтер виден по USB) | GPIO/EXTI12; `TIM1_ETR`, `USART1_RTS`, `CAN1_TX`, `OTG_FS_DP` |
 | 72 | `PA13` | SWDIO/JTMS; трасса debug-разъёма не подтверждена | GPIO/EXTI13; `SWDIO`, `JTMS` |
@@ -116,23 +116,23 @@
 | 79 | `PC11` | **M** SD MISO | GPIO/EXTI11; `I2S3ext_SD`, `USART3_RX`, `UART4_RX`, `SDIO_D3`, `DCMI_D4` |
 | 80 | `PC12` | **M** SD MOSI | GPIO/EXTI12; `SPI3_MOSI/I2S3_SD`, `UART5_TX`, `SDIO_CK`, `DCMI_D9` |
 | 81 | `PD0` | **M** SD CS / `SDSS` | GPIO/EXTI0; `CAN1_RX`, `FSMC_D2` |
-| 82 | `PD1` | Не подтверждено | GPIO/EXTI1; `CAN1_TX`, `FSMC_D3` |
-| 83 | `PD2` | Не подтверждено | GPIO/EXTI2; `TIM3_ETR`, `UART5_RX`, `SDIO_CMD`, `DCMI_D11` |
-| 84 | `PD3` | Не подтверждено | GPIO/EXTI3; `FSMC_CLK`, `USART2_CTS` |
-| 85 | `PD4` | Не подтверждено | GPIO/EXTI4; `FSMC_NOE`, `USART2_RTS` |
-| 86 | `PD5` | Не подтверждено | GPIO/EXTI5; `FSMC_NWE`, `USART2_TX` |
-| 87 | `PD6` | Не подтверждено | GPIO/EXTI6; `FSMC_NWAIT`, `USART2_RX` |
-| 88 | `PD7` | Не подтверждено | GPIO/EXTI7; `FSMC_NE1/NCE2` |
-| 89 | `PB3` | Не подтверждено | GPIO/EXTI3; `JTDO/TRACESWO`, `SPI1_SCK/I2S3_CK`, `TIM2_CH2` |
-| 90 | `PB4` | Не подтверждено | GPIO/EXTI4; `NJTRST`, `SPI1_MISO`, `TIM3_CH1`, `I2S3ext_SD` |
+| 82 | `PD1` |  | GPIO/EXTI1; `CAN1_TX`, `FSMC_D3` |
+| 83 | `PD2` |  | GPIO/EXTI2; `TIM3_ETR`, `UART5_RX`, `SDIO_CMD`, `DCMI_D11` |
+| 84 | `PD3` |  | GPIO/EXTI3; `FSMC_CLK`, `USART2_CTS` |
+| 85 | `PD4` |  | GPIO/EXTI4; `FSMC_NOE`, `USART2_RTS` |
+| 86 | `PD5` |  | GPIO/EXTI5; `FSMC_NWE`, `USART2_TX` |
+| 87 | `PD6` |  | GPIO/EXTI6; `FSMC_NWAIT`, `USART2_RX` |
+| 88 | `PD7` |  | GPIO/EXTI7; `FSMC_NE1/NCE2` |
+| 89 | `PB3` |  | GPIO/EXTI3; `JTDO/TRACESWO`, `SPI1_SCK/I2S3_CK`, `TIM2_CH2` |
+| 90 | `PB4` |  | GPIO/EXTI4; `NJTRST`, `SPI1_MISO`, `TIM3_CH1`, `I2S3ext_SD` |
 | 91 | `PB5` | **M** DGUS/DWIN power pin, only when `DGUS_LCD_UI_LOTMAXX` enabled | GPIO/EXTI5; `I2C1_SMBA`, `SPI1_MOSI/I2S3_SD`, `CAN2_RX`, `OTG_HS_ULPI_D7`, `TIM3_CH2` |
-| 92 | `PB6` | Не подтверждено | GPIO/EXTI6; `I2C1_SCL`, `TIM4_CH1`, `USART1_TX`, `CAN2_TX`, `FSMC_NL` |
-| 93 | `PB7` | Не подтверждено | GPIO/EXTI7; `I2C1_SDA`, `TIM4_CH2`, `USART1_RX`, `TIM1_BKIN`, `FSMC_NL` |
+| 92 | `PB6` |  | GPIO/EXTI6; `I2C1_SCL`, `TIM4_CH1`, `USART1_TX`, `CAN2_TX`, `FSMC_NL` |
+| 93 | `PB7` |  | GPIO/EXTI7; `I2C1_SDA`, `TIM4_CH2`, `USART1_RX`, `TIM1_BKIN`, `FSMC_NL` |
 | 94 | `BOOT0` | Boot strap; не использовать как GPIO | Выбор boot mode при reset |
-| 95 | `PB8` | Не подтверждено | GPIO/EXTI8; `TIM4_CH3`, `I2C1_SCL`, `CAN1_RX`, `ETH_MII_TXD3`, `SDIO_D4` |
-| 96 | `PB9` | Не подтверждено | GPIO/EXTI9; `TIM4_CH4`, `I2C1_SDA`, `SPI2_NSS/I2S2_WS`, `CAN1_TX`, `SDIO_D5` |
-| 97 | `PE0` | Не подтверждено | GPIO/EXTI0; `TIM4_ETR`, `FSMC_NBL0`, `DCMI_D2` |
-| 98 | `PE1` | Не подтверждено | GPIO/EXTI1; `FSMC_NBL1` |
+| 95 | `PB8` |  | GPIO/EXTI8; `TIM4_CH3`, `I2C1_SCL`, `CAN1_RX`, `ETH_MII_TXD3`, `SDIO_D4` |
+| 96 | `PB9` |  | GPIO/EXTI9; `TIM4_CH4`, `I2C1_SDA`, `SPI2_NSS/I2S2_WS`, `CAN1_TX`, `SDIO_D5` |
+| 97 | `PE0` |  | GPIO/EXTI0; `TIM4_ETR`, `FSMC_NBL0`, `DCMI_D2` |
+| 98 | `PE1` |  | GPIO/EXTI1; `FSMC_NBL1` |
 | 99 | `VSS` | Земля | Питание GND |
 | 100 | `VDD` | Цифровое питание | Питание 1.8–3.6 V |
 
