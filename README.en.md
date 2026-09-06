@@ -4,7 +4,7 @@ This is a field reference for the **Lotmaxx Shark V2** with the **Beta M V1.1** 
 
 ## Verified facts
 
-- MCU: STM32F407VGT6, LQFP100; board marking: Beta M V1.1, `20201207`.
+- MCU: STM32F407VET6, LQFP100; board marking: Beta M V1.1, `20201207`.
 - Laser driver: SC-60-V2-L-V1.0.
 - Laser-related MCU signals: `PE9` powers the driver rail, `PE12` enables the board-side low-side cascade, `PE13` is laser PWM, and `PD9` is the active-low focus switch.
 - LightBurn's Marlin profile uses `M106 S0..255` for laser power. Power changes must be synchronized with motion, otherwise rapid moves between vectors can burn lines.
@@ -14,6 +14,7 @@ Read the Russian documentation for the full pin tables, build instructions, safe
 
 - [Status and limits](docs/STATUS.md)
 - [Controller board](docs/BOARD.md)
+- [STM32F407VET6 MCU and all physical pins](docs/MCU_STM32F407VET6.md)
 - [Laser module](docs/LASER.md)
 - [Building Marlin](docs/MARLIN.md)
 - [LightBurn](docs/LIGHTBURN.md)
