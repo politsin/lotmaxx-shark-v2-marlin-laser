@@ -18,4 +18,9 @@ Read the Russian documentation for the full pin tables, build instructions, safe
 - [Building Marlin](docs/MARLIN.md)
 - [LightBurn](docs/LIGHTBURN.md)
 
-This repository intentionally excludes experimental firmware binaries, DWIN packages, and thermal-protection bypasses.
+The verified stock recovery pair is included separately:
+
+- [`firmware/original/SM3DP-1.6.BIN`](firmware/original/SM3DP-1.6.BIN) is the stable stock controller image.
+- [`dwin/DWIN_SET/`](dwin/DWIN_SET/) is the matching stable stock display package.
+
+Experimental DWIN packages and diagnostic binaries are intentionally excluded. The included Marlin binary remains experimental and must not be treated as a safe 3D-print release while thermal diagnostics are bypassed.

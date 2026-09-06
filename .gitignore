@@ -5,6 +5,11 @@
 *.map
 !firmware/
 !firmware/SM3DP.bin
+!firmware/original/
+!firmware/original/SM3DP-1.6.BIN
+!dwin/
+!dwin/DWIN_SET/
+!dwin/DWIN_SET/**
 
 # Local captures and temporary artifacts
 captures/
