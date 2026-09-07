@@ -15,6 +15,7 @@ Read the Russian documentation for the full pin tables, build instructions, safe
 - [Status and limits](docs/STATUS.md)
 - [Controller board](docs/BOARD.md)
 - [STM32F407VET6 MCU and all physical pins](docs/MCU_STM32F407VET6.md)
+- [WIFI header: verified power, observed traces, and continuity plan](docs/WIFI.md)
 - [Laser module](docs/LASER.md)
 - [Building Marlin](docs/MARLIN.md)
 - [LightBurn](docs/LIGHTBURN.md)
