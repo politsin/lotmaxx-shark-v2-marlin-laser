@@ -73,6 +73,17 @@ pio run -e lotmaxx_V1_7
 
 Подберите термисторы по реальному оборудованию и обязательно проверьте их показания. Приведённые значения - отправная точка, а не разрешение отключать защиту.
 
+### ESP32 Wi-Fi bridge
+
+В актуальном BIN второй host-порт Marlin включён для внешнего ESP32-моста:
+
+```cpp
+#define SERIAL_PORT_2 2
+#define BAUDRATE_2 115200
+```
+
+`USART2` намеренно переназначен на разведённую к колодке `WIFI` пару `PD5` (TX) / `PD6` (RX). Стандартный порядок STM32duino выбрал бы `PA2`/`PA3`, но это пины оси Y данной платы. Подключение и границы питания описаны в [WIFI.md](WIFI.md). Рабочая реализация для LilyGO T-Display находится в [politsin/esp23-lotmaxx](https://github.com/politsin/esp23-lotmaxx): `GPIO26` ESP32 -> `PD6`, `GPIO27` ESP32 <- `PD5`, UART `115200 8N1`, TCP G-code мост `:8888`. Это serial bridge, а не встроенный Wi-Fi Marlin.
+
 ### `Configuration_adv.h`
 
 ```cpp
